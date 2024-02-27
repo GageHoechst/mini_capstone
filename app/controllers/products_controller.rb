@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  def shop
-    render json: { name: "Hello" }
+  def one_product
+    @Product = Product.find_by
+    (id: params{:id})
+    render :show
+    
   end
 end
