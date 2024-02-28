@@ -1,11 +1,3 @@
 class ApplicationController < ActionController::Base
-  def shop
-    products = Product.all
-    render json: {
-      name: products.name,
-      price: products.price,
-      image_url: products.image_url,
-      description: products.description,
-    }
-  end
+  protect_from_forgery with: :exception, unless: -> { request.format.json? }
 end
