@@ -50,4 +50,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     product = Product.new(price: 100)
     assert_in_delta 109, product.total
   end
+  test "destroy" do
+    assert_difference "Product.count", -1 do
+      delete "/products/#{Product.first.id}.json"
+      assert_response 200
+    end
+  end
 end
