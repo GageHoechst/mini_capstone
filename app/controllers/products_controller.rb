@@ -6,6 +6,16 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(
+      name: params[:name],
+      price: params[:price],
+      image_url: params[:image_url],
+      description: params[:description],
+    )
+    render :show
+  end
+
+  def create
+    @product = Product.create(
       name: "glass eye",
       price: 35,
       image_url: "glass eye picture",
@@ -14,13 +24,8 @@ class ProductsController < ApplicationController
     render :show
   end
 
-  def create
-    @product = Product.create(
-      name: params["name"],
-      price: params["price"],
-      image_url: params["image_url"],
-      description: params["description"],
-    )
-    render :show
+  def index
+    @products = Product.all
+    render :index
   end
 end
