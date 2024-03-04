@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.update(
       name: params[:name] || @product.name,
-      price: params[:price] || @product.price,
+      price: params[:price] || @price.price,
       image_url: params[:image_url] || @product.image_url,
       description: params[:description] || @product.description,
     )
