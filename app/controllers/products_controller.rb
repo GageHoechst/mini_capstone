@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
       description: params[:description],
     )
     render :show
+    if @product.valid?
+      render :show
+    else
+      render json: { errors: @product.errors.full_messages }, status: 422
+    end
   end
 
   def create
@@ -38,6 +43,11 @@ class ProductsController < ApplicationController
       description: params[:description] || @product.description,
     )
     render :show
+    if @product.valid?
+      render :show
+    else
+      render json: { errors: @product.errors.full_messages }, status: 422
+    end
   end
 
   def destroy
