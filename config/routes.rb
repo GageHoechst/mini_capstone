@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "/images", controller: "images", action: "index"
   patch "/images/:id", controller: "images", action: "update"
   delete "/images/:id" => "images#destroy"
+  post "/users" => "users#create"
 end
