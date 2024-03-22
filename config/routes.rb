@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   delete "/images/:id" => "images#destroy"
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
+  post "/order" => "orders#create"
+  get "/order/:id" => "orders#show"
+  get "/order" => "orders#index"
 end
