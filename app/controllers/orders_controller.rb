@@ -17,7 +17,11 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    render :index
+    if current_user
+      @orders = current_user.orders
+      render :index
+    else
+      render json: ["must be logged in to view"], status: :unauthorized
+    end
   end
 end
